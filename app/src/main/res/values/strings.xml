@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Subway</string>
+    <string name="app_name">지하철 최단경로 프로그램 붕붕이</string>
+
 </resources>
