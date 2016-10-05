@@ -1,4 +1,10 @@
 <resources>
-    <string name="app_name">지하철 최단경로 프로그램 붕붕이</string>
+    <string name="app_name">붕붕이</string>
+
+    <string name="acc_enter_upper">출 발 역</string>
+    <string name="acc_exit_upper">도 착 역</string>
+
+    <string name="dsec_title_msg">find the fastest way</string>
+    <string name="desc_bottom_msg"> show subway map </string>
 
 </resources>
