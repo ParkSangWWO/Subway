@@ -16,9 +16,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black"
-        android:alpha="0.6"
+        android:alpha="0.7"
         />
 
+
+    <LinearLayout
+        android:id="@+id/container_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:paddingTop="60dp"
+        android:paddingLeft="48dp"
+        android:paddingRight="48dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
         <TextView
             android:id="@+id/txt_title_msg"
             android:layout_width="match_parent"
@@ -26,31 +38,24 @@
             android:text="@string/dsec_title_msg"
             android:textColor="@color/white"
             android:textSize="30dp"
-            android:textStyle="bold"
             android:textAlignment="center"
-            android:fontFamily="serif"
-            android:layout_marginTop="50dp"/>
+            android:fontFamily="sans-serif"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"/>
 
-    <LinearLayout
-        android:id="@+id/container_field"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:paddingLeft="48dp"
-        android:paddingRight="48dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        >
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/et_enter_"
+            android:id="@+id/et_enter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:inputType="text"
-            app:met_baseColor="@color/half_white"
+            android:textColor="@color/white"
+            app:met_baseColor="@color/white_white"
             app:met_primaryColor="@color/white"
             app:met_floatingLabel="normal"
-            app:met_floatingLabelText="@string/acc_enter_upper"/>
+            app:met_floatingLabelText="@string/acc_enter_upper"
+            android:layout_weight="1"
+            android:layout_marginBottom="30dp"
+            />
 
         <ImageView
             android:id="@+id/iv_transfer"
@@ -58,19 +63,32 @@
             android:layout_height="40dp"
             android:src="@drawable/shuffle"
             android:layout_gravity="center"
-            android:layout_margin="20dp"/>
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            />
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/et_exit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textColor="@color/white"
+            app:met_baseColor="@color/white_white"
+            app:met_primaryColor="@color/white"
+            app:met_floatingLabel="normal"
+            app:met_floatingLabelText="@string/acc_exit_upper"
+            android:layout_weight="1"
+            android:layout_marginTop="30dp"
+            />
 
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/icon_compass"
             android:layout_gravity="bottom|center"
-            android:layout_marginTop="80dp"/>
+            android:layout_weight="1"
+            android:layout_marginTop="50dp"
+            />
 
         <TextView
             android:id="@+id/btn_show_map"
@@ -78,8 +96,11 @@
             android:layout_height="54dp"
             android:gravity="center"
             android:textSize="18sp"
+            android:fontFamily="sans-serif"
             android:textColor="@color/white"
             android:text="@string/desc_bottom_msg"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
             android:background="@drawable/btn_white_stroke"
             />
 
