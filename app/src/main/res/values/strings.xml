@@ -6,6 +6,6 @@
 
     <string name="dsec_title_msg">Fastest Way</string>
     <string name="desc_bottom_msg">M a p</string>
-    <string name="desc_zoom">화면을 확대해주세요.</string>
+    <string name="desc_zoom">화면을 확대/축소 해주세요.</string>
 
 </resources>

@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <it.sephiroth.android.library.imagezoom.ImageViewTouch
-        android:id="@+id/image"
-        android:layout_width="match_parent"
-        android:layout_height="0dp" />
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/img_map"
+        android:id="@+id/img_subway"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
         android:src="@drawable/img_subway"
-        />
+        android:scaleType="centerCrop"/>
 
-</RelativeLayout>
+</LinearLayout>
