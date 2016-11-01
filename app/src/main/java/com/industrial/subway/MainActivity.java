@@ -1,21 +1,26 @@
 package com.industrial.subway;
 
 import android.content.Intent;
-import android.media.Image;
-import android.os.Debug;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.industrial.subway.util.Request;
+import com.industrial.subway.network.RequestService;
+import com.industrial.subway.network.RootClass;
+import com.industrial.subway.network.ShortestRouteList;
 import com.rengwuxian.materialedittext.MaterialEditText;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,9 +30,10 @@ public class MainActivity extends AppCompatActivity {
     private ImageView btnSearch;
 
     private String[] testArray = {"shtStatCnt"};
-    private Request request = new Request();
     private String Start = "사당";
     private String End = "소요산";
+    private String key = "4956584b61736b793132344967757057";
+    private RootClass rootClass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +43,6 @@ public class MainActivity extends AppCompatActivity {
         initView();
         initEvent();
 
-        new Thread() {
-            public void run() {
-                request = new Request("4956584b61736b793132344967757057", Start, End , testArray);
-            }
-        }.start();
 
     }
 
@@ -57,18 +58,45 @@ public class MainActivity extends AppCompatActivity {
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String enter = etEnter.getText().toString();
                 String exit = etExit.getText().toString();
+
                 if(!enter.isEmpty() && !exit.isEmpty()) {
                     Start = enter;
                     End = exit;
-
-                    request.Read();
-                    request.Json();
-                    request.GetResult();
                 }else {
                     Toast.makeText(MainActivity.this, "출발역과 도착역을 입력해주세요.", Toast.LENGTH_SHORT).show();
                 }
+
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl("http://swopenAPI.seoul.go.kr")
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+
+                final RequestService requestService = retrofit.create(RequestService.class);
+
+                Call<RootClass> call = requestService.getRequest(
+                        key, End, Start
+                );
+
+                call.enqueue(new Callback<RootClass>() {
+                    @Override
+                    public void onResponse(Call<RootClass> call, Response<RootClass> response) {
+                        Log.d("MainActivity","success");
+                        Intent intent = new Intent(MainActivity.this, RequestActivity.class);
+
+                        rootClass = response.body();
+                        intent.putExtra("request",rootClass);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onFailure(Call<RootClass> call, Throwable t) {
+                        Log.d("MainActivity","Fail");
+                        t.printStackTrace();
+                    }
+                });
             }
         });
 
@@ -108,4 +136,6 @@ public class MainActivity extends AppCompatActivity {
         etEnter = (MaterialEditText) findViewById(R.id.et_enter);
         etExit = (MaterialEditText) findViewById(R.id.et_exit);
     }
+
+
 }
