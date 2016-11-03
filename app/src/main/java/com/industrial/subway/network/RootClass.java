@@ -15,28 +15,39 @@ import java.io.Serializable;
 
 
 
-public class RootClass implements Serializable{
-
+public class RootClass implements Serializable {
     private ErrorMessage errorMessage;
-    private Object message_info_ok;
-    private ShortestRouteList shortestRouteList;
 
-    public void setErrorMessage(ErrorMessage errorMessage){
+    private ShortestRouteList[] shortestRouteList;
+
+    private String message_info_ok;
+
+    public ErrorMessage getErrorMessage() {
+        return errorMessage;
+    }
+
+    public void setErrorMessage(ErrorMessage errorMessage) {
         this.errorMessage = errorMessage;
     }
-    public ErrorMessage getErrorMessage(){
-        return this.errorMessage;
+
+    public ShortestRouteList[] getShortestRouteList() {
+        return shortestRouteList;
     }
-    public void setMessageInfoOk(Object messageInfoOk){
-        this.message_info_ok = messageInfoOk;
-    }
-    public Object getMessageInfoOk(){
-        return this.message_info_ok;
-    }
-    public void setShortestRouteList(ShortestRouteList shortestRouteList){
+
+    public void setShortestRouteList(ShortestRouteList[] shortestRouteList) {
         this.shortestRouteList = shortestRouteList;
     }
-    public ShortestRouteList getShortestRouteList(){
-        return this.shortestRouteList;
+
+    public String getMessage_info_ok() {
+        return message_info_ok;
+    }
+
+    public void setMessage_info_ok(String message_info_ok) {
+        this.message_info_ok = message_info_ok;
+    }
+
+    @Override
+    public String toString() {
+        return "ClassPojo [errorMessage = " + errorMessage + ", shortestRouteList = " + shortestRouteList + ", message_info_ok = " + message_info_ok + "]";
     }
 }

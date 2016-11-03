@@ -18,6 +18,6 @@ public class RequestActivity extends AppCompatActivity {
         Intent intent = getIntent();
         RootClass shortestRouteList = (RootClass) intent.getSerializableExtra("request");
 
-        Toast.makeText(RequestActivity.this,shortestRouteList.getShortestRouteList().getMinStatnCnt(),Toast.LENGTH_SHORT).show();
+        Toast.makeText(RequestActivity.this,shortestRouteList.getShortestRouteList()[0].getMinStatnCnt(),Toast.LENGTH_SHORT).show();
     }
 }
