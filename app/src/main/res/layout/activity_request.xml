@@ -54,6 +54,10 @@
         android:orientation="vertical"
         android:layout_marginTop="30dp">
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -86,6 +90,10 @@
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -104,12 +112,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="최단시간 경유 지하철역명"
+                android:text="최단시간 경유 지하철역명 (-> 순)"
                 android:layout_weight="1"/>
 
             <TextView
-                android:id="@+id/txt_shtstatnnm"
-                android:layout_width="wrap_content"
+                android:id="@+id/txt_minstatnnm"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textSize="14dp"
@@ -117,6 +125,10 @@
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -140,12 +152,11 @@
                 android:layout_weight="1"/>
 
             <TextView
-                android:id="@+id/txt_shttraveltm"
+                android:id="@+id/txt_mintransfermsg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textSize="20dp"
-                android:textStyle="bold"
                 android:layout_weight="1"/>
 
         </LinearLayout>

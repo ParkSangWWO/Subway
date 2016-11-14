@@ -15,38 +15,31 @@ public class RequestActivity extends AppCompatActivity {
     TextView txtStatnFnm;
     TextView txtMinstatCnt;
     TextView txtShtTravelTm;
-    TextView txtShtStatnNm;
+    TextView txtShtTransferMsg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request);
 
-        initView();
-        initEvent();
 
-    }
-
-    private void initEvent() {
         txtStatnFnm = (TextView) findViewById(R.id.txt_statnfnm);
         txtStatnTnm = (TextView) findViewById(R.id.txt_statntnm);
         txtMinstatCnt = (TextView) findViewById(R.id.txt_mintxtcnt);
-        txtShtStatnNm = (TextView) findViewById(R.id.txt_shtstatnnm);
-        txtShtTravelTm = (TextView) findViewById(R.id.txt_shttraveltm);
-    }
-
-    private void initView() {
+        txtShtTransferMsg = (TextView) findViewById(R.id.txt_minstatnnm);
+        txtShtTravelTm = (TextView) findViewById(R.id.txt_mintransfermsg);
         Intent intent = getIntent();
         RootClass shortestRouteList = (RootClass) intent.getSerializableExtra("request");
         txtStatnFnm.setText(shortestRouteList.getShortestRouteList()[0].getStatnFnm());
         txtStatnTnm.setText(shortestRouteList.getShortestRouteList()[0].getStatnTnm());
         txtMinstatCnt.setText(shortestRouteList.getShortestRouteList()[0].getMinStatnCnt());
-        txtShtStatnNm.setText(shortestRouteList.getShortestRouteList()[0].getShtStatnNm());
-        String[] route = shortestRouteList.getShortestRouteList()[0].getShtTravelTm().split(",");
-        txtShtTravelTm.setText(route[0]);
+        txtShtTravelTm.setText(shortestRouteList.getShortestRouteList()[0].getMinTransferMsg());
+      String[] route = shortestRouteList.getShortestRouteList()[0].getMinStatnNm().split(",");
+        txtShtTransferMsg.setText(route[0]);
         for(int i=1; i<route.length; i++) {
-            txtShtTravelTm.setText(txtShtTravelTm.getText() + " > " + route[i]);
+            txtShtTransferMsg.setText(txtShtTransferMsg.getText() + route[i]);
         }
+
     }
 }
 

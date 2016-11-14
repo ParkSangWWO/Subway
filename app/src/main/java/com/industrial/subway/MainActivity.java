@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<RootClass> call, Throwable t) {
+                        Toast.makeText(MainActivity.this, "역 명을 잘못 입력하셨습니다." , Toast.LENGTH_SHORT).show();
                         Log.d("MainActivity","Fail");
                         t.printStackTrace();
                     }
